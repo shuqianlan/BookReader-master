@@ -41,7 +41,6 @@ import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    @BindView(R.id.common_toolbar)
     public Toolbar mCommonToolbar;
 
     protected Context mContext;
@@ -62,6 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         transparent19and20();
         mContext = this;
         unbind = ButterKnife.bind(this);
+        mCommonToolbar = ButterKnife.findById(this, R.id.common_toolbar);
         setupActivityComponent(ReaderApplication.getsInstance().getAppComponent());
         if (mCommonToolbar != null) {
             initToolBar();
